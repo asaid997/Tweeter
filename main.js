@@ -8,7 +8,7 @@ const twit = $('#post')
 const inputPost = $('input')
 
 const post = function () {
-    if (inputPost.val() != "") {
+    if (inputPost.val() !== "") {
         tweeter.addPost(inputPost.val())
         renderer.renderPosts(tweeter.getPosts())
     }
@@ -22,7 +22,7 @@ $("#posts").on("click", ".delete", function () {
 
 $("#posts").on("click", ".add-comment", function () {
     const text = $(this).closest('.add-comment-container').find('input').val()
-    if (text != "") {
+    if (text !== "") {
         const id = $(this).closest('.post-container').find('.post').data("id")
         tweeter.addComment(text, id)
         renderer.renderPosts(tweeter.getPosts())

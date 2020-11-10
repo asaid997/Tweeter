@@ -27,23 +27,23 @@ const Tweeter = function () {
 
     const addPost = (content) => posts.push({ text: content, id: "p" + (++postIdCounter), comments: [] })
 
-    const removePost = function (pid) {
+    const removePost = function (personId) {
         for (let index in posts)
-            if (pid == posts[index].id)
+            if (personId == posts[index].id)
                 posts.splice(index, 1)
     }
 
-    const addComment = function (content, pid) {
+    const addComment = function (content, personId) {
         for (let index in posts)
-            if (pid == posts[index].id)
+            if (personId == posts[index].id)
                 posts[index].comments.push({ id: "c" + (++commentIdCounter), text: content })
     }
 
-    const removeComment = function (pid, cid) {
+    const removeComment = function (personId, commentId) {
         for (let post of posts)
-            if (post.id == pid)
+            if (post.id == personId)
                 for (let index in post.comments)
-                    if (post.comments[index].id == cid)
+                    if (post.comments[index].id == commentId)
                         post.comments.splice(index, 1)
     }
 

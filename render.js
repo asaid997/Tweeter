@@ -34,29 +34,29 @@ const Renderer = function () {
         parent.append(element)
     }
 
-    const addComment = function(postContainer){
+    const addComment = function (postContainer) {
 
         const container = $('<div></div>')
         container.addClass('add-comment-container')
-        appendElement(container,postContainer)
-        
+        appendElement(container, postContainer)
+
         const input = $('<input></input>')
-        input.attr('placeholder','comment')
+        input.attr('placeholder', 'comment')
         input.addClass('comment-input')
-        appendElement(input,container)
+        appendElement(input, container)
 
         const submit = $('<i></i>')
         submit.addClass("far fa-paper-plane add-comment")
-        submit.hover(function(){
+        submit.hover(function () {
             this.classList.add('fas');
         }, function () {
             this.classList.remove('fas');
         })
-        appendElement(submit,container)
+        appendElement(submit, container)
     }
 
     const showAllComments = function (post, commentContainer) {
-        commentContainer.text("")
+        commentContainer.empty()
         for (let comment of post.comments) {
             const actualComment = getPostCommentElement("comments", comment.id, comment.text)
             appendElement(actualComment, commentContainer)
@@ -71,7 +71,7 @@ const Renderer = function () {
 
     const renderPosts = function (posts) {
         const postsEl = $("#posts")
-        postsEl.text("")
+        postsEl.empty()
         for (let post of posts) {
             const postContainer = getGridElement('post-container')
             appendElement(postContainer, postsEl)
@@ -98,7 +98,7 @@ const Renderer = function () {
                     commentsShownFlag = true
                 }
                 else {
-                    commentContainer.text("")
+                    commentContainer.empty()
                     commentsShownFlag = false
                 }
             })
